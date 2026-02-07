@@ -196,7 +196,6 @@ const Home = () => {
         service={selectedService}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onAddToCart={handleAddToCart}
       />
 
       {/* Video Section */}
