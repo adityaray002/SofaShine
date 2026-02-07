@@ -4,24 +4,17 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import ServiceModal from '../components/ServiceModal';
+import { useCart } from '../context/CartContext';
 import { services, reviews, faqs } from '../mock';
 import { Star, CheckCircle, Clock, Shield, Sparkles, ArrowRight, Play } from 'lucide-react';
 
 const Home = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
 
   const handleServiceClick = (service) => {
     setSelectedService(service);
     setIsModalOpen(true);
-  };
-
-  const handleAddToCart = (packages) => {
-    setCartItems([...cartItems, ...packages]);
-    // Store in localStorage
-    const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
-    localStorage.setItem('cart', JSON.stringify([...existingCart, ...packages]));
   };
 
   return (
