@@ -3,36 +3,31 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Star, Clock, CheckCircle, X } from 'lucide-react';
-import { toast } from 'sonner';
+import { useCart } from '../context/CartContext';
 
-const ServiceModal = ({ service, isOpen, onClose, onAddToCart }) => {
+const ServiceModal = ({ service, isOpen, onClose }) => {
   const [selectedPackages, setSelectedPackages] = useState([]);
+  const { addToCart } = useCart();
 
   if (!service) return null;
 
   const handleAddPackage = (pkg) => {
-    // Check if package already added
     const existingIndex = selectedPackages.findIndex(p => p.id === pkg.id);
     
     if (existingIndex >= 0) {
-      // Remove if already added
       const newPackages = selectedPackages.filter(p => p.id !== pkg.id);
       setSelectedPackages(newPackages);
-      toast.info('Package removed from selection');
     } else {
-      // Add new package
       setSelectedPackages([...selectedPackages, { ...pkg, serviceId: service.id, serviceName: service.name }]);
-      toast.success('Package added to selection');
     }
   };
 
   const handleAddToCart = () => {
     if (selectedPackages.length === 0) {
-      toast.error('Please select at least one package');
       return;
     }
     
-    onAddToCart(selectedPackages);
+    addToCart(selectedPackages);
     setSelectedPackages([]);
     onClose();
   };
