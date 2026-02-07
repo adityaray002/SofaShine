@@ -89,3 +89,15 @@ textarea:focus {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Hide Emergent branding */
+[aria-label*="Made with Emergent"],
+[class*="emergent"],
+button:has(> span:contains("Made with Emergent")),
+div:has(> span:contains("Made with Emergent")) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
