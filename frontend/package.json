@@ -57,7 +57,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "postbuild": "cp public/_redirects build/_redirects"
   },
   "browserslist": {
     "production": [
