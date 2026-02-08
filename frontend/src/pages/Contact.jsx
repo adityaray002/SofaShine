@@ -35,7 +35,7 @@ const Contact = () => {
   };
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/918920536399', '_blank');
+    window.open('https://wa.me/919315576914', '_blank');
   };
 
   return (
@@ -129,7 +129,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-bold text-lg mb-2">Chat on WhatsApp</h3>
                       <p className="text-white/90 text-sm mb-3">Quick responses, instant booking</p>
-                      <p className="font-semibold">+91 8920536399</p>
+                      <p className="font-semibold">+91 9315576914</p>
                     </div>
                   </div>
                 </CardContent>
@@ -146,7 +146,7 @@ const Contact = () => {
                       <h3 className="font-bold text-gray-900 mb-2">Call Us</h3>
                       <p className="text-gray-600 text-sm mb-2">Mon-Sat: 9 AM - 7 PM</p>
                       <a href="tel:+918920536399" className="text-teal-600 font-semibold hover:underline">
-                        +91 8920536399
+                        +91 9315576914
                       </a>
                     </div>
                   </div>
