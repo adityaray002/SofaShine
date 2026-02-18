@@ -24,50 +24,83 @@ const CartPage = () => {
   const [customerPhone, setCustomerPhone] = useState('');
   const [address, setAddress] = useState('');
 
-  const handleBooking = () => {
-    if (cartCount === 0) {
-      toast.error('Your cart is empty');
-      return;
-    }
+ const handleBooking = () => {
+  if (cartCount === 0) {
+    toast.error("Your cart is empty");
+    return;
+  }
 
-    if (!customerName || !customerPhone || !address) {
-      toast.error('Please fill all required fields');
-      return;
-    }
+  if (!customerName || !customerPhone || !address) {
+    toast.error("Please fill all required fields");
+    return;
+  }
 
-    // Create booking
-    const booking = {
-      id: Date.now(),
-      customerName,
-      customerPhone,
-      address,
-      items: cartItems,
-      subtotal: getCartTotal(),
-      discount: getDiscountAmount(),
-      total: getFinalTotal(),
-      status: 'pending',
-      createdAt: new Date().toISOString()
-    };
-
-    const existingBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
-    existingBookings.push(booking);
-    localStorage.setItem('bookings', JSON.stringify(existingBookings));
-
-    // Create WhatsApp message
-    const itemsList = cartItems.map(item => 
-      `${item.serviceName} - ${item.type} (Qty: ${item.quantity}) - ₹${item.price * item.quantity}`
-    ).join('\\n');
-
-    const message = `*New Booking Request - SofaShine*\\n\\n*Customer Details:*\\nName: ${customerName}\\nPhone: ${customerPhone}\\nAddress: ${address}\\n\\n*Services Booked:*\\n${itemsList}\\n\\n*Payment Summary:*\\nSubtotal: ₹${getCartTotal()}\\nDiscount (10% OFF): -₹${getDiscountAmount()}\\n*Total Amount: ₹${getFinalTotal()}*\\n\\nPlease confirm availability!`;
-
-    const whatsappURL = `https://wa.me/918920536399?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, '_blank');
-
-    // Clear cart and redirect
-    clearCart();
-    toast.success('Booking request sent! Check WhatsApp.');
-    setTimeout(() => navigate('/'), 2000);
+  // Create booking object
+  const booking = {
+    id: Date.now(),
+    customerName,
+    customerPhone,
+    address,
+    items: cartItems,
+    subtotal: getCartTotal(),
+    discount: getDiscountAmount(),
+    total: getFinalTotal(),
+    status: "pending",
+    createdAt: new Date().toISOString(),
   };
+
+  // Save booking
+  const existingBookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+  existingBookings.push(booking);
+  localStorage.setItem("bookings", JSON.stringify(existingBookings));
+
+  // Format services list nicely
+  const itemsList = cartItems
+    .map(
+      (item) =>
+        `• ${item.serviceName} (${item.type}) — Qty: ${item.quantity} — ₹${
+          item.price * item.quantity
+        }`
+    )
+    .join("\n");
+
+  // Clean professional WhatsApp message
+  const message = `
+🛋️ *New Booking Request — SofaShine*
+
+👤 *Customer Details*
+• Name: ${customerName}
+• Phone: ${customerPhone}
+• Address: ${address}
+
+📌 *Booking Details*
+• Booking ID: #${booking.id}
+• Booking Time: ${new Date().toLocaleString()}
+
+🧽 *Services Booked*
+${itemsList}
+
+💳 *Payment Summary*
+• Subtotal: ₹${getCartTotal()}
+• Discount: -₹${getDiscountAmount()}
+• *Total Amount: ₹${getFinalTotal()}*
+
+📅 Please confirm availability.
+`;
+
+  // Send to your business WhatsApp number
+  const whatsappURL = `https://wa.me/919315576914?text=${encodeURIComponent(
+    message
+  )}`;
+
+  window.open(whatsappURL, "_blank");
+
+  // Clear cart + redirect
+  clearCart();
+  toast.success("Booking request sent! Check WhatsApp.");
+  setTimeout(() => navigate("/"), 2000);
+};
+
 
   if (cartCount === 0) {
     return (
