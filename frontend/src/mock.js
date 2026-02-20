@@ -89,7 +89,114 @@ export const services = [
       "Wood polish for wooden furniture",
       "Fabric stain removal"
     ]
+  },{
+    id: 5,
+    name: "Full Home Cleaning",
+    description: "Complete deep cleaning for entire home including kitchen, bathroom and living areas.",
+    image: "https://images.unsplash.com/photo-1581578949510-fa7315c4c350?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    rating: 4.9,
+    reviews: "2K",
+    startingPrice: 3999,
+    duration: "3-6 hours",
+    packages: [
+      { id: 1, type: "1 BHK", price: 3999, description: "Complete 1 BHK cleaning" },
+      { id: 2, type: "2 BHK", price: 4999, description: "Complete 2 BHK cleaning" },
+      { id: 3, type: "3 BHK", price: 5999, description: "Complete 3 BHK cleaning" },
+      { id: 4, type: "4 BHK", price: 2399, description: "Large home cleaning" },
+      { id: 5, type: "5 BHK", price: 2999, description: "Villa or duplex cleaning" }
+    ],
+    features: [
+      "Floor scrubbing and mopping",
+      "Kitchen deep cleaning",
+      "Bathroom sanitization",
+      "Dusting of furniture and surfaces"
+    ]
+  }, {
+    id: 6,
+    name: "Bathroom Cleaning",
+    description: "Deep bathroom cleaning including exhaust, basin, and tiles.",
+    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80",
+    rating: 4.7,
+    reviews: "1K",
+    startingPrice: 350,
+    duration: "1 hour",
+    packages: [
+      { id: 1, type: "1 Bathroom", price: 350 },
+      { id: 2, type: "2 Bathrooms", price: 680 },
+      { id: 3, type: "3 Bathrooms", price: 1100 }
+    ],
+    features: [
+      "Tile and floor scrubbing",
+      "Toilet and basin cleaning",
+      "Mirror and fittings polishing",
+      "Disinfection and odor removal"
+    ]
+  },{
+    id: 7,
+    name: "Cockroach Control",
+    description: "Complete cockroach removal with safe pest control treatment.",
+    image: "https://plus.unsplash.com/premium_photo-1682126082802-983618de1dd9?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    rating: 4.8,
+    reviews: "3K",
+    startingPrice: 849,
+    duration: "1-2 hours",
+    packages: [
+      { id: 1, type: "Kitchen Only", price: 849 },
+      { id: 2, type: "1 Bathroom + Kitchen", price: 1049 },
+      { id: 3, type: "2 Bathroom + Kitchen", price: 1249 },
+      { id: 4, type: "3 Bathroom + Kitchen", price: 1299 },
+      { id: 5, type: "4+ Bathroom + Kitchen", price: 1399 }
+    ],
+    features: [
+      "Odorless chemical treatment",
+      "Safe for family and pets",
+      "Long lasting protection",
+      "Professional pest inspection"
+    ]
+  }, {
+    id: 8,
+    name: "Bed Bug Control",
+    description: "Advanced bed bug treatment for complete pest elimination.",
+    image: "https://media.istockphoto.com/id/1030358908/photo/insanitation-concept-woman-holds-lens-shows-there-are-bugs-in-bedclothes-detects-bad-insects.jpg?s=2048x2048&w=is&k=20&c=1-zFvZl95mJ84n61k9cjsePM4mcFRN6FU7Ivz6Or79E=",
+    rating: 4.9,
+    reviews: "1.5K",
+    startingPrice: 1499,
+    duration: "2-3 hours",
+    packages: [
+      { id: 1, type: "1 BHK", price: 1499 },
+      { id: 2, type: "2 BHK", price: 1699 },
+      { id: 3, type: "3 BHK", price: 2199 }
+    ],
+    features: [
+      "Complete room treatment",
+      "Safe chemical spray",
+      "Mattress treatment included",
+      "Follow-up guidance"
+    ]
+  },
+
+  {
+    id: 9,
+    name: "Office Cleaning",
+    description: "Professional office cleaning for hygienic workspace.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80",
+    rating: 4.7,
+    reviews: "900",
+    startingPrice: 4999,
+    duration: "5 hours",
+    packages: [
+      { id: 1, type: "Small Office", price: 4999 },
+      { id: 2, type: "Medium Office", price: 7999 },
+      { id: 3, type: "Large Office", price: 12999 }
+    ],
+    features: [
+      "Desk and workstation cleaning",
+      "Floor and carpet cleaning",
+      "Washroom sanitization",
+      "Waste removal"
+    ]
   }
+  
 ];
 
 export const reviews = [
