@@ -52,11 +52,11 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-teal-400" />
-                <span>+91 9315576914</span>
+                <a href="tel:+919315576914" className="hover:text-teal-400 transition-colors">+91 9315576914</a>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-teal-400" />
-                <span>hello@sofashine.com</span>
+                <a href="mailto:hello@sofashine.in" className="hover:text-teal-400 transition-colors">hello@sofashine.in</a>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-teal-400" />

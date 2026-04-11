@@ -163,8 +163,8 @@ const Contact = () => {
                     <div>
                       <h3 className="font-bold text-gray-900 mb-2">Email Us</h3>
                       <p className="text-gray-600 text-sm mb-2">We'll reply within 24 hours</p>
-                      <a href="mailto:hello@sofashine.com" className="text-blue-600 font-semibold hover:underline">
-                        hello@sofashine.com
+                      <a href="mailto:hello@sofashine.in" className="text-blue-600 font-semibold hover:underline">
+                        hello@sofashine.in
                       </a>
                     </div>
                   </div>
