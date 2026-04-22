@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import ServiceModal from '../components/ServiceModal';
 import { useCart } from '../context/CartContext';
 import { services, reviews, faqs } from '../mock';
 import { Star, CheckCircle, Clock, Shield, Sparkles, ArrowRight, Play } from 'lucide-react';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 
 const Home = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -19,6 +32,17 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Best Sofa Cleaning Service in Delhi NCR | SofaShine — From ₹449</title>
+        <meta name="description" content="Professional sofa, carpet & mattress cleaning in Delhi NCR. Eco-friendly products, trained technicians, same-day service. Rated 4.85/5 by 7,000+ customers. Book in 30 seconds." />
+        <link rel="canonical" href="https://sofashine.in/" />
+        <meta property="og:title" content="Best Sofa Cleaning Service in Delhi NCR | SofaShine" />
+        <meta property="og:description" content="Professional sofa, carpet & mattress cleaning in Delhi NCR. Same-day service from ₹449. Rated 4.85/5 by 7,000+ customers." />
+        <meta property="og:url" content="https://sofashine.in/" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-teal-50 via-blue-50 to-white py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -68,7 +92,10 @@ const Home = () => {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
                 <img
                   src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzb2ZhJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzYyMjM3MDg4fDA&ixlib=rb-4.1.0&q=85"
-                  alt="Clean modern sofa"
+                  alt="Professional sofa cleaning in Delhi NCR"
+                  width="800"
+                  height="600"
+                  fetchPriority="high"
                   className="w-full h-auto"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-teal-900/30 to-transparent"></div>
@@ -150,6 +177,9 @@ const Home = () => {
                   <img
                     src={service.image}
                     alt={service.name}
+                    width="400"
+                    height="192"
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -215,6 +245,9 @@ const Home = () => {
                 <img
                   src="https://images.unsplash.com/photo-1686178827149-6d55c72d81df?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzb2ZhJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzYyMjM3MDg4fDA&ixlib=rb-4.1.0&q=85"
                   alt="Professional cleaning in action"
+                  width="1200"
+                  height="675"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors"></div>
@@ -283,7 +316,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ — static HTML for crawler visibility */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
@@ -295,22 +328,22 @@ const Home = () => {
                 Got questions? We've got answers.
               </p>
             </div>
-            <Accordion type="single" collapsible className="space-y-4">
+            <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <AccordionItem
+                <details
                   key={index}
-                  value={`item-${index}`}
-                  className="bg-white border-2 border-gray-200 rounded-xl px-6 hover:border-teal-200 transition-colors"
+                  className="bg-white border-2 border-gray-200 rounded-xl px-6 hover:border-teal-200 transition-colors group"
                 >
-                  <AccordionTrigger className="text-left font-semibold text-gray-900 hover:text-teal-600">
+                  <summary className="flex justify-between items-center py-4 font-semibold text-gray-900 hover:text-teal-600 cursor-pointer list-none">
                     {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-600">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
+                    <span className="ml-4 flex-shrink-0 text-teal-500 transition-transform duration-200 group-open:rotate-180">
+                      ▾
+                    </span>
+                  </summary>
+                  <div className="pb-4 text-gray-600 leading-relaxed">{faq.answer}</div>
+                </details>
               ))}
-            </Accordion>
+            </div>
           </div>
         </div>
       </section>

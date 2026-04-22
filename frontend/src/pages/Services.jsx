@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { services } from '../mock';
@@ -12,6 +13,15 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>All Cleaning Services in Delhi NCR | Sofa, Carpet, Pest Control | SofaShine</title>
+        <meta name="description" content="Professional sofa cleaning, carpet cleaning, mattress cleaning, pest control and home cleaning services in Delhi NCR. Transparent pricing from ₹299. Same-day service available." />
+        <link rel="canonical" href="https://sofashine.in/services" />
+        <meta property="og:title" content="Cleaning Services in Delhi NCR | SofaShine" />
+        <meta property="og:description" content="Sofa, carpet, mattress & pest control cleaning in Delhi NCR from ₹299. Eco-friendly, same-day service." />
+        <meta property="og:url" content="https://sofashine.in/services" />
+      </Helmet>
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-50 via-blue-50 to-white py-16">
         <div className="container mx-auto px-4 text-center">
@@ -34,6 +44,9 @@ const Services = () => {
                   <img
                     src={service.image}
                     alt={service.name}
+                    width="600"
+                    height="256"
+                    loading="lazy"
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>

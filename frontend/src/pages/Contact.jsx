@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Label } from '../components/ui/label';
@@ -40,6 +41,15 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>Contact SofaShine | Book Sofa Cleaning in Delhi NCR | +91 9315576914</title>
+        <meta name="description" content="Contact SofaShine for professional sofa and home cleaning in Delhi NCR. Call +91 9315576914, WhatsApp, or fill the form. Available Mon–Sat 9AM–7PM, Sun 10AM–5PM." />
+        <link rel="canonical" href="https://sofashine.in/contact" />
+        <meta property="og:title" content="Contact SofaShine | Delhi NCR Cleaning Services" />
+        <meta property="og:description" content="Reach SofaShine for sofa cleaning bookings in Delhi NCR. Call, WhatsApp, or email us. Fast response guaranteed." />
+        <meta property="og:url" content="https://sofashine.in/contact" />
+      </Helmet>
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-50 via-blue-50 to-white py-16">
         <div className="container mx-auto px-4 text-center">

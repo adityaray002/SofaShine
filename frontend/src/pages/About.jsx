@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { CheckCircle, Heart, Target, Users, ArrowRight } from 'lucide-react';
@@ -7,6 +8,15 @@ import { CheckCircle, Heart, Target, Users, ArrowRight } from 'lucide-react';
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>About SofaShine | Professional Cleaning Services in Delhi NCR Since 2025</title>
+        <meta name="description" content="SofaShine was founded in 2025 with a mission to provide affordable, transparent sofa and home cleaning services in Delhi NCR. 1,000+ happy customers, 4.9/5 rating." />
+        <link rel="canonical" href="https://sofashine.in/about" />
+        <meta property="og:title" content="About SofaShine | Delhi NCR Cleaning Experts" />
+        <meta property="og:description" content="Founded in 2025, SofaShine brings professional, eco-friendly cleaning to Delhi NCR homes. 1,000+ customers served, 4.9/5 rated." />
+        <meta property="og:url" content="https://sofashine.in/about" />
+      </Helmet>
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-50 via-blue-50 to-white py-20">
         <div className="container mx-auto px-4">
@@ -29,7 +39,10 @@ const About = () => {
               <div>
                 <img
                   src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjbGVhbmluZ3xlbnwwfHx8fDE3NjIyMzcwOTR8MA&ixlib=rb-4.1.0&q=85"
-                  alt="Professional cleaning team"
+                  alt="SofaShine professional cleaning team in Delhi"
+                  width="600"
+                  height="450"
+                  loading="lazy"
                   className="rounded-2xl shadow-2xl"
                 />
               </div>
