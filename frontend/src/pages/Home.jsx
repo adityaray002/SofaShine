@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import ServiceModal from '../components/ServiceModal';
 import { useCart } from '../context/CartContext';
-import { services, reviews, faqs } from '../mock';
+import { services, reviews, faqs, blogPosts } from '../mock';
 import { Star, CheckCircle, Clock, Shield, Sparkles, ArrowRight, Play } from 'lucide-react';
 
 const faqSchema = {
@@ -20,6 +20,32 @@ const faqSchema = {
     }
   }))
 };
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SofaShine",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "1000",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": reviews.map(r => ({
+    "@type": "Review",
+    "author": { "@type": "Person", "name": r.name },
+    "reviewRating": { "@type": "Rating", "ratingValue": String(r.rating), "bestRating": "5" },
+    "reviewBody": r.text
+  }))
+};
+
+const serviceAreas = [
+  "Connaught Place", "South Delhi", "North Delhi", "West Delhi",
+  "East Delhi", "Dwarka", "Rohini", "Pitampura",
+  "Noida", "Greater Noida", "Gurgaon", "Faridabad",
+  "Ghaziabad", "Vasant Kunj", "Saket", "Lajpat Nagar"
+];
 
 const Home = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -41,6 +67,7 @@ const Home = () => {
         <meta property="og:url" content="https://sofashine.in/" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(reviewSchema)}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -91,7 +118,7 @@ const Home = () => {
             <div className="relative animate-in slide-in-from-right duration-700">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
                 <img
-                  src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzb2ZhJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzYyMjM3MDg4fDA&ixlib=rb-4.1.0&q=85"
+                  src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?crop=entropy&cs=srgb&fm=webp&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzb2ZhJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzYyMjM3MDg4fDA&ixlib=rb-4.1.0&q=85"
                   alt="Professional sofa cleaning in Delhi NCR"
                   width="800"
                   height="600"
@@ -243,7 +270,7 @@ const Home = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
               <div className="relative aspect-video bg-gradient-to-br from-teal-100 to-blue-100">
                 <img
-                  src="https://images.unsplash.com/photo-1686178827149-6d55c72d81df?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzb2ZhJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzYyMjM3MDg4fDA&ixlib=rb-4.1.0&q=85"
+                  src="https://images.unsplash.com/photo-1686178827149-6d55c72d81df?crop=entropy&cs=srgb&fm=webp&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzb2ZhJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzYyMjM3MDg4fDA&ixlib=rb-4.1.0&q=85"
                   alt="Professional cleaning in action"
                   width="1200"
                   height="675"
@@ -343,6 +370,89 @@ const Home = () => {
                   <div className="pb-4 text-gray-600 leading-relaxed">{faq.answer}</div>
                 </details>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Sofa Cleaning Across All of Delhi NCR
+            </h2>
+            <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
+              Professional sofa and home cleaning services available in every corner of Delhi NCR — same-day service in most areas.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {serviceAreas.map((area) => (
+                <div key={area} className="bg-teal-50 border border-teal-100 rounded-xl py-3 px-4 text-teal-700 font-medium text-sm hover:bg-teal-100 transition-colors">
+                  {area}
+                </div>
+              ))}
+            </div>
+            <p className="text-gray-500 mt-8 text-sm">
+              Don't see your area?{' '}
+              <Link to="/contact" className="text-teal-600 underline hover:text-teal-800">
+                Contact us
+              </Link>{' '}
+              — we cover all of Delhi NCR including Noida Expressway, Sohna Road, NH-8, and beyond.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest from Blog */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex items-center justify-between mb-10">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                  Sofa Care Tips & Guides
+                </h2>
+                <p className="text-gray-600">Expert advice from our professional cleaning team</p>
+              </div>
+              <Link to="/blog" className="hidden md:block">
+                <Button variant="outline" className="border-2 border-teal-500 text-teal-700 hover:bg-teal-50">
+                  View All Articles
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {blogPosts.slice(0, 3).map((post) => (
+                <Link key={post.id} to={`/blog/${post.slug}`} className="group block">
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 hover:border-teal-200 h-full">
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        width="400"
+                        height="192"
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <CardContent className="p-5">
+                      <p className="text-xs text-teal-600 font-medium mb-2">{post.date}</p>
+                      <h3 className="font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 line-clamp-2">{post.excerpt}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-6 text-center md:hidden">
+              <Link to="/blog">
+                <Button variant="outline" className="border-2 border-teal-500 text-teal-700 hover:bg-teal-50">
+                  View All Articles
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

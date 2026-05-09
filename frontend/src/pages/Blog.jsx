@@ -120,6 +120,16 @@ const BlogPost = () => {
     "mainEntityOfPage": `https://sofashine.in/blog/${post.slug}`
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sofashine.in/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sofashine.in/blog" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://sofashine.in/blog/${post.slug}` }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
@@ -132,6 +142,7 @@ const BlogPost = () => {
         <meta property="og:type" content="article" />
         <meta property="og:image" content={post.image} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero Image */}
@@ -221,6 +232,40 @@ const BlogPost = () => {
                 </Button>
               </Link>
             </Card>
+
+            {/* Related Posts */}
+            {(() => {
+              const related = blogPosts.filter(p => p.slug !== post.slug).slice(0, 3);
+              return related.length > 0 ? (
+                <div className="mt-10">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Related Articles</h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {related.map((relPost) => (
+                      <Link key={relPost.id} to={`/blog/${relPost.slug}`} className="group block">
+                        <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border-2 hover:border-teal-200 h-full">
+                          <div className="relative h-40 overflow-hidden">
+                            <img
+                              src={relPost.image}
+                              alt={relPost.title}
+                              width="400"
+                              height="160"
+                              loading="lazy"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                          <CardContent className="p-4">
+                            <p className="text-xs text-teal-600 font-medium mb-1">{relPost.date}</p>
+                            <h4 className="font-bold text-gray-900 text-sm group-hover:text-teal-600 transition-colors line-clamp-2">
+                              {relPost.title}
+                            </h4>
+                          </CardContent>
+                        </Card>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : null;
+            })()}
           </div>
         </div>
       </section>

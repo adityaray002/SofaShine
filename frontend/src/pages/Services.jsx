@@ -6,6 +6,43 @@ import { Card, CardContent } from '../components/ui/card';
 import { services } from '../mock';
 import { CheckCircle, Clock, Shield, Sparkles, ArrowRight } from 'lucide-react';
 
+const servicesBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sofashine.in/" },
+    { "@type": "ListItem", "position": 2, "name": "Cleaning Services", "item": "https://sofashine.in/services" }
+  ]
+};
+
+const serviceListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "SofaShine Cleaning Services in Delhi NCR",
+  "url": "https://sofashine.in/services",
+  "numberOfItems": services.length,
+  "itemListElement": services.map((service, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Service",
+      "name": service.name,
+      "description": service.description,
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": service.startingPrice
+      },
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "SofaShine",
+        "url": "https://sofashine.in"
+      },
+      "areaServed": "Delhi NCR"
+    }
+  }))
+};
+
 const Services = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,6 +57,8 @@ const Services = () => {
         <meta property="og:title" content="Cleaning Services in Delhi NCR | SofaShine" />
         <meta property="og:description" content="Sofa, carpet, mattress & pest control cleaning in Delhi NCR from ₹299. Eco-friendly, same-day service." />
         <meta property="og:url" content="https://sofashine.in/services" />
+        <script type="application/ld+json">{JSON.stringify(serviceListSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(servicesBreadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}

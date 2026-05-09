@@ -5,6 +5,15 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { CheckCircle, Heart, Target, Users, ArrowRight } from 'lucide-react';
 
+const aboutBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sofashine.in/" },
+    { "@type": "ListItem", "position": 2, "name": "About SofaShine", "item": "https://sofashine.in/about" }
+  ]
+};
+
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -15,6 +24,7 @@ const About = () => {
         <meta property="og:title" content="About SofaShine | Delhi NCR Cleaning Experts" />
         <meta property="og:description" content="Founded in 2025, SofaShine brings professional, eco-friendly cleaning to Delhi NCR homes. 1,000+ customers served, 4.9/5 rated." />
         <meta property="og:url" content="https://sofashine.in/about" />
+        <script type="application/ld+json">{JSON.stringify(aboutBreadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}
@@ -38,7 +48,7 @@ const About = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <img
-                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjbGVhbmluZ3xlbnwwfHx8fDE3NjIyMzcwOTR8MA&ixlib=rb-4.1.0&q=85"
+                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?crop=entropy&cs=srgb&fm=webp&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjbGVhbmluZ3xlbnwwfHx8fDE3NjIyMzcwOTR8MA&ixlib=rb-4.1.0&q=85"
                   alt="SofaShine professional cleaning team in Delhi"
                   width="600"
                   height="450"

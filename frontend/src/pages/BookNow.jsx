@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { services } from '../mock';
 import ServiceModal from '../components/ServiceModal';
 import { useCart } from '../context/CartContext';
@@ -19,6 +20,15 @@ const BookNow = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
+      <Helmet>
+        <title>Book Sofa Cleaning in Delhi NCR | SofaShine — Instant Booking</title>
+        <meta name="description" content="Book professional sofa, carpet, mattress or home cleaning in Delhi NCR. Choose your service, pick a time slot, and get 10% off your first booking. Same-day available." />
+        <link rel="canonical" href="https://sofashine.in/book" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:title" content="Book Cleaning Service | SofaShine Delhi NCR" />
+        <meta property="og:description" content="Instant online booking for sofa, carpet and home cleaning in Delhi NCR. Transparent pricing, 10% off first service." />
+        <meta property="og:url" content="https://sofashine.in/book" />
+      </Helmet>
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
