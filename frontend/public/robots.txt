@@ -1,8 +1,26 @@
 User-agent: *
+Allow: /
 Disallow: /admin
 Disallow: /cart
 Disallow: /book
+Disallow: /.env
+Disallow: /private/
+
+# Crawl delay (helps server load)
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://sofashine.in/sitemap.xml
+
+# Allow traditional search bots explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
 
 # Allow AI search crawlers
 User-agent: GPTBot
