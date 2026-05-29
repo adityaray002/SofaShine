@@ -16,6 +16,7 @@ const BlogList = () => {
         <meta property="og:title" content="Sofa Care Tips & Guides | SofaShine Blog" />
         <meta property="og:description" content="Expert advice on maintaining and cleaning your sofa from SofaShine, Delhi NCR's trusted cleaning professionals." />
         <meta property="og:url" content="https://sofashine.in/blog" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
       {/* Hero */}
@@ -130,6 +131,20 @@ const BlogPost = () => {
     ]
   };
 
+  const howToSchema = post.howToSteps ? {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": post.title,
+    "description": post.excerpt,
+    "image": post.image,
+    "step": post.howToSteps.map((step, i) => ({
+      "@type": "HowToStep",
+      "position": i + 1,
+      "name": step.name,
+      "text": step.text
+    }))
+  } : null;
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Helmet>
@@ -143,6 +158,7 @@ const BlogPost = () => {
         <meta property="og:image" content={post.image} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {howToSchema && <script type="application/ld+json">{JSON.stringify(howToSchema)}</script>}
       </Helmet>
 
       {/* Hero Image */}

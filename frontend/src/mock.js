@@ -277,7 +277,14 @@ In Delhi NCR, we recommend cleaning more frequently â€” every 4â€“6 mo
 Even if you follow all five tips, watch for these warning signs that indicate you need professional intervention: visible stains that DIY methods haven't removed, a musty or stale odor that persists after airing, allergic reactions when sitting on the sofa, or fabric that looks dull and flat despite regular vacuuming. If you notice any of these, book a professional cleaning immediately to prevent further deterioration.`,
     image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?crop=entropy&cs=srgb&fm=webp&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzb2ZhJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzYyMjM3MDg4fDA&ixlib=rb-4.1.0&q=85",
     date: "March 15, 2025",
-    author: "SofaShine Team"
+    author: "SofaShine Team",
+    howToSteps: [
+      { name: "Vacuum weekly", text: "Use a soft brush attachment to vacuum all surfaces, seams, and crevices of your sofa every week to remove dust, pet hair, and debris." },
+      { name: "Blot spills immediately", text: "Act within 30 seconds of a spill. Press a clean white cloth firmly onto the liquid and lift straight up — never rub. Repeat with a fresh section until no more liquid transfers." },
+      { name: "Rotate and flip cushions", text: "Rotate sofa cushions every 2–3 weeks and flip reversible ones to distribute wear evenly and prevent sagging." },
+      { name: "Protect from sunlight and heat", text: "Position your sofa away from direct sunlight and at least 2 feet from heat sources to prevent fabric fading and leather cracking." },
+      { name: "Schedule professional cleaning", text: "Book a professional deep clean every 6–12 months (every 4–6 months in Delhi NCR due to higher pollution) to remove embedded allergens and restore fabric appearance." }
+    ]
   },
   {
     id: 2,
@@ -499,7 +506,15 @@ Sprinkle baking soda or cornstarch generously over the fresh grease stain and le
 If the stain covers a large area, has been set for more than 24 hours, involves multiple layers of contamination, or is on a delicate fabric (velvet, silk blend, white linen), home treatment risks making the stain worse. SofaShine's professional stain treatment service uses targeted enzyme cleaners and extraction equipment that remove stains safely without risk of fabric damage. Book a professional clean if you're unsure â€” the cost of professional treatment is far less than the cost of replacing a damaged sofa.`,
     image: "https://images.unsplash.com/photo-1686178827149-6d55c72d81df?crop=entropy&cs=srgb&fm=webp&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzb2ZhJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzYyMjM3MDg4fDA&ixlib=rb-4.1.0&q=85",
     date: "April 10, 2025",
-    author: "SofaShine Team"
+    author: "SofaShine Team",
+    howToSteps: [
+      { name: "Blot — never rub", text: "Press a clean white cloth onto the stain and lift straight up. Never rub. Work from the outside of the stain inward to avoid spreading." },
+      { name: "Treat tea and coffee stains", text: "Mix 1 tsp dish soap + 1 tbsp white vinegar + 2 cups warm water. Blot onto fresh stain, work inward, then blot with plain cold water to rinse." },
+      { name: "Remove food and curry stains", text: "Scoop solids with a spoon. Apply cold soapy water and blot. For turmeric, apply a baking soda paste, wait 10 minutes, brush away, then follow with soapy water." },
+      { name: "Treat pet urine stains", text: "Blot fresh urine immediately. Apply an enzyme-based pet cleaner, allow 10–15 minutes, then blot dry. Only enzyme cleaners break down uric acid crystals completely." },
+      { name: "Remove ink stains", text: "Apply isopropyl alcohol (rubbing alcohol) to a white cloth and blot the stain. Use a fresh cloth section with each blot. Follow with a light soap-and-water treatment." },
+      { name: "Treat red wine stains", text: "Blot immediately, then pour a small amount of cold sparkling water to lift the wine. Apply a salt paste, leave 5 minutes, brush away, then treat with cold soapy water." }
+    ]
   }
 ];
 

@@ -17,6 +17,10 @@ const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Admin = lazy(() => import("./pages/Admin"));
 const CartPage = lazy(() => import("./pages/CartPage"));
+const LocationPage = lazy(() => import("./pages/LocationPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Terms = lazy(() => import("./pages/Terms"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -43,6 +47,14 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/sofa-cleaning-noida" element={<LocationPage />} />
+                <Route path="/sofa-cleaning-gurgaon" element={<LocationPage />} />
+                <Route path="/sofa-cleaning-south-delhi" element={<LocationPage />} />
+                <Route path="/sofa-cleaning-dwarka" element={<LocationPage />} />
+                <Route path="/sofa-cleaning-faridabad" element={<LocationPage />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
             <Footer />

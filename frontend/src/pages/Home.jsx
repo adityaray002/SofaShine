@@ -8,6 +8,21 @@ import { useCart } from '../context/CartContext';
 import { services, reviews, faqs, blogPosts } from '../mock';
 import { Star, CheckCircle, Clock, Shield, Sparkles, ArrowRight, Play } from 'lucide-react';
 
+const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "SofaShine Professional Deep Cleaning Process — Delhi NCR",
+  "description": "Watch how SofaShine's certified professionals deep clean sofas and upholstery using eco-friendly products and industrial extraction equipment in Delhi NCR homes.",
+  "thumbnailUrl": "https://images.unsplash.com/photo-1686178827149-6d55c72d81df?crop=entropy&cs=srgb&fm=webp&q=85&w=1200",
+  "uploadDate": "2025-03-01",
+  "duration": "PT3M",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SofaShine",
+    "url": "https://sofashine.in"
+  }
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -66,8 +81,10 @@ const Home = () => {
         <meta property="og:description" content="Professional sofa, carpet & mattress cleaning in Delhi NCR. Same-day service from ₹449. Rated 4.85/5 by 7,000+ customers." />
         <meta property="og:url" content="https://sofashine.in/" />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(reviewSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(videoSchema)}</script>
       </Helmet>
 
       {/* Hero Section */}

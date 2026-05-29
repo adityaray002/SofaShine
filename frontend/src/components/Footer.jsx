@@ -35,14 +35,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Service Areas */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Our Services</h4>
+            <h4 className="text-white font-semibold mb-4">Service Areas</h4>
             <ul className="space-y-2 text-sm">
-              <li className="hover:text-teal-400 transition-colors cursor-pointer">Fabric Sofa Cleaning</li>
-              <li className="hover:text-teal-400 transition-colors cursor-pointer">Leather Sofa Cleaning</li>
-              <li className="hover:text-teal-400 transition-colors cursor-pointer">Cushion Deep Wash</li>
-              <li className="hover:text-teal-400 transition-colors cursor-pointer">Stain Removal</li>
+              <li><Link to="/sofa-cleaning-noida" className="hover:text-teal-400 transition-colors">Sofa Cleaning in Noida</Link></li>
+              <li><Link to="/sofa-cleaning-gurgaon" className="hover:text-teal-400 transition-colors">Sofa Cleaning in Gurgaon</Link></li>
+              <li><Link to="/sofa-cleaning-south-delhi" className="hover:text-teal-400 transition-colors">Sofa Cleaning in South Delhi</Link></li>
+              <li><Link to="/sofa-cleaning-dwarka" className="hover:text-teal-400 transition-colors">Sofa Cleaning in Dwarka</Link></li>
+              <li><Link to="/sofa-cleaning-faridabad" className="hover:text-teal-400 transition-colors">Sofa Cleaning in Faridabad</Link></li>
             </ul>
           </div>
 
