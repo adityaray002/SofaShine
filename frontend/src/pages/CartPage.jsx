@@ -64,6 +64,27 @@ const CartPage = () => {
     )
     .join("\n");
 
+  // Auto-create lead in admin panel (fire and forget — doesn't block WhatsApp)
+  const serviceInterest = cartItems
+    .map((item) => `${item.serviceName} - ${item.type}`)
+    .join(", ");
+
+  const BOOKING_API = process.env.REACT_APP_BOOKING_API_URL || "http://localhost:5000";
+  fetch(`${BOOKING_API}/api/leads/website`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": "sofa_website_lead_2024",
+    },
+    body: JSON.stringify({
+      name: customerName,
+      phone: customerPhone,
+      serviceInterest,
+      quotedAmount: getFinalTotal(),
+      notes: `Address: ${address}\n\nServices:\n${itemsList}\n\nSubtotal: ₹${getCartTotal()} | Discount: ₹${getDiscountAmount()} | Total: ₹${getFinalTotal()}`,
+    }),
+  }).catch(() => {});
+
   // Clean professional WhatsApp message
   const message = `
 🛋️ *New Booking Request — SofaShine*
