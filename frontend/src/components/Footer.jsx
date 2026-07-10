@@ -65,13 +65,13 @@ const Footer = () => {
               </li>
             </ul>
             <div className="flex space-x-3 mt-4">
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-teal-500 transition-colors">
+              <a href="https://www.facebook.com/sofashine" aria-label="SofaShine on Facebook" className="p-2 bg-gray-800 rounded-full hover:bg-teal-500 transition-colors">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-teal-500 transition-colors">
+              <a href="https://www.instagram.com/sofashine" aria-label="SofaShine on Instagram" className="p-2 bg-gray-800 rounded-full hover:bg-teal-500 transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-teal-500 transition-colors">
+              <a href="https://twitter.com/sofashine" aria-label="SofaShine on Twitter" className="p-2 bg-gray-800 rounded-full hover:bg-teal-500 transition-colors">
                 <Twitter className="w-4 h-4" />
               </a>
             </div>

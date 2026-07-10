@@ -66,6 +66,9 @@ const BookNow = () => {
                       <img
                         src={service.image}
                         alt={service.name}
+                        width="96"
+                        height="96"
+                        loading="lazy"
                         className="w-24 h-24 object-cover rounded-lg"
                       />
                       <div className="flex-1">

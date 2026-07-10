@@ -42,6 +42,9 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
           <img
             src={service.image}
             alt={service.name}
+            width="800"
+            height="192"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>

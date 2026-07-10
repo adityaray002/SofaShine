@@ -28,9 +28,9 @@ const Header = () => {
               <Sparkles className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
                 SofaShine
-              </h1>
+              </span>
               <p className="text-xs text-gray-500">Expert Cleaning</p>
             </div>
           </Link>
